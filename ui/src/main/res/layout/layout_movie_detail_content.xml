@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.ld5ehom.movie.ui.detail.MovieDetailFragment" />
+
+        <variable
+            name="vm"
+            type="com.ld5ehom.movie.presentation.detail.MovieDetailViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/detail_content_padding"
+        tools:background="@color/detail_background">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextAppearance.Ted.Body"
+                android:textColor="@color/detail_text"
+                bind:dateText="@{vm.movie.releasedAt}"
+                tools:text="2022.05.28" />
+
+            <TextView
+                style="@style/TextAppearance.Ted.Body"
+                android:layout_marginHorizontal="4dp"
+                android:text="ㆍ"
+                android:textColor="@color/detail_text" />
+
+            <TextView
+                style="@style/TextAppearance.Ted.Body"
+                android:text="@{@string/minute_fmt(vm.movie.runtime)}"
+                android:textColor="@color/detail_text"
+                tools:text="128min" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextAppearance.Ted.Subtitle"
+                android:text="@{Float.toString(vm.movie.rating)}"
+                android:textColor="@color/golden_yellow"
+                tools:text="9.5" />
+
+            <RatingBar
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:numStars="5"
+                android:progressTint="@color/golden_yellow"
+                android:rating="@{vm.movie.rating}"
+                android:stepSize="0.5"
+                tools:rating="3" />
+
+            <TextView
+                style="@style/TextAppearance.Ted.Body"
+                android:layout_marginStart="2dp"
+                android:text="@{@string/rate_count_fmt(vm.movie.rateCount)}"
+                android:textColor="@color/detail_text"
+                tools:text="(1.5)" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_genre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_genre" />
+
+        <kr.co.prnd.readmore.ReadMoreTextView
+            android:id="@+id/tv_description"
+            style="@style/TextAppearance.Ted.Body"
+            android:layout_marginTop="16dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@{vm.movie.description}"
+            android:textColor="@color/detail_text"
+            app:readMoreMaxLine="3"
+            app:readMoreText="@string/read_more"
+            tools:text="@tools:sample/lorem[20]" />
+
+        <TextView
+            style="@style/TextAppearance.Ted.Subtitle"
+            android:layout_marginTop="16dp"
+            android:text="@string/cast"
+            android:textColor="@color/detail_category" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_actor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_summary_actor" />
+
+        <TextView
+            style="@style/TextAppearance.Ted.Subtitle"
+            android:layout_marginTop="16dp"
+            android:text="@string/similar_movie"
+            android:textColor="@color/detail_category" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_similar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_summary_movie" />
+
+        <TextView
+            style="@style/TextAppearance.Ted.Subtitle"
+            android:layout_marginTop="16dp"
+            android:text="@string/recommend_movie"
+            android:textColor="@color/detail_category" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_summary_movie" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.ld5ehom.movie.ui.detail.MovieDetailFragment" />
+
+        <variable
+            name="vm"
+            type="com.ld5ehom.movie.presentation.detail.MovieDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motion_layout_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/scene_show_details">
+
+        <ImageView
+            android:id="@+id/iv_backdrop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/detail_background"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@id/details_appbar_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:loadImage="@{vm.movie.backdropImageUrl}"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <View
+            android:id="@+id/scrim_backdrop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_backdrop"
+            app:layout_constraintEnd_toEndOf="@id/iv_backdrop"
+            app:layout_constraintStart_toStartOf="@id/iv_backdrop"
+            app:layout_constraintTop_toTopOf="@id/iv_backdrop" />
+
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:transformPivotX="0px"
+            android:transformPivotY="0px"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <com.ld5ehom.movie.ui.views.TopLeftCutoutBackgroundView
+            android:id="@+id/details_appbar_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/detail_background"
+            app:topLeftCutSize="@dimen/detail_corner_cutout" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextAppearance.Ted.Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:text="@{vm.movie.name}"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="120dp"
+            tools:layout_editor_absoluteY="277dp"
+            tools:text="@tools:sample/lorem[3]" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
+            android:foreground="?attr/actionBarItemBackground"
+            android:onClick="@{() -> view.finish()}"
+            android:padding="16dp"
+            android:src="?android:attr/homeAsUpIndicator"
+            app:layout_constraintTop_toBottomOf="@id/anchor_status_bar"
+            app:tint="@color/white" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/sv_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="-1dp"
+            android:background="@color/detail_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/details_appbar_background">
+
+            <include
+                android:id="@+id/layout_movie_detail_content"
+                layout="@layout/layout_movie_detail_content"
+                bind:view="@{view}"
+                bind:vm="@{vm}" />
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- The height of this is updated via an OnApplyWindowInsetsListener  -->
+        <View
+            android:id="@+id/anchor_status_bar"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:background="@drawable/status_bar_translucent_scrim"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:backgroundTint="@color/colorAccent"
+            android:onClick="@{() -> vm.showVideo()}"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_baseline_play_arrow_24"
+            android:tint="@color/white"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@id/details_appbar_background"
+            app:layout_constraintEnd_toEndOf="@id/details_appbar_background"
+            app:layout_constraintTop_toTopOf="@id/details_appbar_background" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

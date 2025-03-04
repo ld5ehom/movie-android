@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="genre">장르</string>
+    <string name="rating">평점</string>
+    <string name="runtime">상영시간</string>
+
+    <string name="read_more">…더보기</string>
+    <string name="minute_fmt">%d분</string>
+    <string name="cast">배우</string>
+    <string name="recommend_movie">추천 영화</string>
+    <string name="similar_movie">비슷한 영화</string>
+</resources>

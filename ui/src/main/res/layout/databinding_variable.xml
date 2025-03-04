@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.ld5ehom.movie.presentation.base.BaseViewModel" />
+
+        <variable
+            name="view"
+            type="com.ld5ehom.movie.ui.base.BaseActivity" />
+    </data>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</layout>

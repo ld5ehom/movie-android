@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="genre"
+            type="com.ld5ehom.movie.presentation.model.GenreModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/transparent"
+        app:cardCornerRadius="100dp"
+        app:strokeColor="@color/detail_second_text"
+        app:strokeWidth="1dp">
+
+        <TextView
+            style="@style/TextAppearance.Ted.Caption"
+            android:layout_margin="8dp"
+            android:text="@{genre.name}"
+            android:textColor="@color/detail_second_text"
+            tools:text="action" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

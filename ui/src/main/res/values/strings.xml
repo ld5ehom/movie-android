@@ -1,0 +1,14 @@
+<resources>
+    <string name="movie_rating_rate_count_fmt">%1$.1f (%2$,d)</string>
+    <string name="rate_count_fmt">(%,d)</string>
+
+    <string name="genre">Genre</string>
+    <string name="rating">Rating</string>
+    <string name="runtime">Runtime</string>
+
+    <string name="read_more">…Read More</string>
+    <string name="minute_fmt">%dmin</string>
+    <string name="cast">Cast</string>
+    <string name="recommend_movie">Recommend Movie</string>
+    <string name="similar_movie">Recommend Movie</string>
+</resources>

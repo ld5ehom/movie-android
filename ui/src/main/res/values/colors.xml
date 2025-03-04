@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1C1A29</color>
+    <color name="colorPrimaryDark">#2F2C44</color>
+    <!--<color name="colorAccent">#ff4081</color>-->
+    <color name="colorAccent">#E50914</color>
+    <color name="windowBackground">@color/colorPrimary</color>
+
+    <color name="transparent">@android:color/transparent</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_30">#4DFFFFFF</color>
+    <color name="white_40">#66FFFFFF</color>
+    <color name="white_60">#99FFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+
+    <color name="status_bar_scrim">@color/white_70</color>
+
+    <color name="golden_yellow">#FFDF00</color>
+
+
+    <color name="filter_pill_color">#297195</color>
+    <color name="filter_pill_selected_color">@color/windowBackground</color>
+
+    <color name="filter_fab">@color/white</color>
+    <color name="filter_icon_color">@color/colorPrimary</color>
+
+    <color name="tab_bg_color">@color/colorPrimaryDark</color>
+    <color name="tab_unselected_color">@color/white_60</color>
+    <color name="tab_selected_color">@color/white</color>
+
+    <color name="filter_icon_active_color">@color/white</color>
+    <color name="bottom_bar_color">#bdbdbd</color>
+
+    <color name="filter_seek_bar_color">#1C6690</color>
+    <color name="filter_seek_bar_selected_color">#359CBA</color>
+
+    <color name="detail_background">@color/colorPrimary</color>
+
+    <color name="detail_category">@color/white</color>
+    <color name="detail_text">@color/white_70</color>
+    <color name="detail_second_text">@color/white_40</color>
+</resources>

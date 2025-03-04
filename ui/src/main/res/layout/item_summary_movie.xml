@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.ld5ehom.movie.presentation.model.SummaryMovieModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:transitionName="@{movie.name}"
+        tools:background="@color/colorPrimary"
+        tools:layout_width="135dp">
+
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:transitionName="@{movie.posterImageUrl}"
+            app:layout_constraintDimensionRatio="2:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_poster">
+
+            <TextView
+                android:id="@+id/tv_name"
+                style="@style/TextAppearance.Ted.Caption"
+                android:singleLine="true"
+                android:text="@{movie.name}"
+                android:textColor="@color/white"
+                tools:text="@tools:sample/lorem[1]" />
+
+            <TextView
+                style="@style/TextAppearance.Ted.Caption"
+                android:layout_marginStart="-2dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical"
+                android:text="@{@string/movie_rating_rate_count_fmt(movie.rating,movie.rateCount)}"
+                app:drawableStartCompat="@drawable/ic_baseline_star_24"
+                app:drawableTint="@color/golden_yellow"
+                tools:text="7.5 (1,234)" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

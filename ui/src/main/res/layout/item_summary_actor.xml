@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="actor"
+            type="com.ld5ehom.movie.presentation.model.SummaryActorModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:background="@color/detail_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_poster"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="2:3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.CornerSize10Percent"
+                bind:loadImage="@{actor.profileImageUrl}"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            style="@style/TextAppearance.Ted.Caption"
+            android:gravity="center"
+            android:text="@{actor.name}"
+            android:textColor="@color/detail_text"
+            android:textSize="12sp"
+            tools:text="Elizabeth Olsen" />
+
+        <TextView
+            style="@style/TextAppearance.Ted.Caption"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="@{actor.character}"
+            android:textColor="@color/detail_second_text"
+            android:textSize="12sp"
+            tools:text="Wanda Maximoff" />
+
+    </LinearLayout>
+</layout>

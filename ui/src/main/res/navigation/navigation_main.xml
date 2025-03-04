@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/movieListFragment">
+
+    <action
+        android:id="@+id/action_movie_detail"
+        app:destination="@id/movieDetailFragment" />
+
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.ld5ehom.movie.ui.list.MovieListFragment"
+        android:label="MovieListFragment"
+        tools:layout="@layout/fragment_movie_list">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.ld5ehom.movie.ui.detail.MovieDetailFragment"
+        android:label="MovieDetailFragment"
+        tools:layout="@layout/fragment_movie_detail">
+        <argument
+            android:name="summaryMovie"
+            app:argType="com.ld5ehom.movie.presentation.model.SummaryMovieModel" />
+    </fragment>
+
+</navigation>
