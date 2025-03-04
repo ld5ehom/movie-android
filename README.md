@@ -14,26 +14,25 @@
 
 -----
 ## Architecture
+```
 app/
 ├── src/main/java/com/ld5ehom/movie/
-│   ├── ui/                  # UI-related code (Activity, Fragment, Adapter, etc.)
+│   ├── ui/                  # UI-related code 
 │   ├── presentation/        # ViewModel, UI state management
 │   ├── domain/              # UseCase, Business Logic
 │   ├── data/                # Repository, DataSource
 │   ├── remote/              # Remote data source (API communication)
 │   ├── local/               # Local data source (Room, SharedPreferences)
 │   ├── component/           # Common UI components
-│   ├── design/              # Design system-related code (Themes, Styles, etc.)
-│   ├── device/              # Device-specific functionalities (Sensors, Camera, etc.)
+│   ├── design/              # Design system-related code 
+│   ├── device/              # Device-specific functionalities 
 │   ├── common/              # Utility functions and helper classes
 │
-├── src/main/res/            # Resource folder (layout, drawables, values, etc.)
-│   ├── layout/              # XML layout files
-│   ├── values/              # strings.xml, colors.xml, etc.
-│   ├── drawable/            # Icons, images
-│   ├── mipmap/              # App icons
-│
-├── src/main/AndroidManifest.xml  # Android Manifest file
-├── build.gradle.kts              # Gradle configuration file for the `app` module
-├── proguard-rules.pro            # ProGuard configuration file (for release builds)
+├── src/main/res/            # Resource folder 
+    ├── layout/              # XML layout files
+    ├── values/              # strings.xml, colors.xml, etc.
+    ├── drawable/            # Icons, images
+    ├── mipmap/              # App icons
+
+```
 -----
